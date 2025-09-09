@@ -2,8 +2,11 @@
 (require drracket/check-syntax
          syntax/modread
          data/interval-map
-         try-catch-finally
-         sauron/collect/binding)
+         try-catch-finally)
+
+(struct binding
+  (name start end external?)
+  #:prefab)
 
 (define project-dir "test-dir")
 (define files (find-files (lambda (path) (path-has-extension? path #".rkt")) project-dir))
